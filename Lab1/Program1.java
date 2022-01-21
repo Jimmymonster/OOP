@@ -1,4 +1,4 @@
-class Main{
+class Pro1{
     public static void main(String args[]){
         int ALLsecounds = 365*24*60*60;
         int birth = ALLsecounds/7;

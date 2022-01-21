@@ -1,5 +1,5 @@
 import java.util.*;
-class main{
+class ProExtra{
     public static void main(String args[]){
         System.out.print("Enter the number : ");
         Scanner sc = new Scanner(System.in);

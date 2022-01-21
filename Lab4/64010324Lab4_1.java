@@ -10,7 +10,7 @@ class stock{
         return (currentPrice-proviousClosingPrice)/proviousClosingPrice*100;
     }
 }
-class main{
+class Pro1{
     public static void main(String args[]){
         stock s = new stock("ORCL","Oracle Corporation");
         s.proviousClosingPrice=34.5;

@@ -49,7 +49,7 @@ class Account{
         balance += amount;
     }
 }
-class main{
+class Pro1{
     public static void main(String args[]){
         Account a1 = new Account(1122,20000,4.5);
         a1.withdraw(2500);

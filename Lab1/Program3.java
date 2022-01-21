@@ -1,5 +1,5 @@
 import java.util.*;
-class Main{
+class Pro3{
     public static void main(String args[]){
         System.out.print("Enter the number between 0 and 1000 : ");
         Scanner in = new Scanner(System.in);

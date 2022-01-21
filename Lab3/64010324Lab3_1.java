@@ -1,6 +1,6 @@
 import java.util.*;
 import java.math.*;
-class main{
+class Pro1{
     public static void main(String args[]){
         int[] prime=new int[200000]; // 0=prime 1=not prime
         prime[0]=prime[1]=1;

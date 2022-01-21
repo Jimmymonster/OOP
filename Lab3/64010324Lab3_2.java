@@ -1,5 +1,5 @@
 import java.util.*;
-class main{
+class Pro2{
     public static int k=0,len1,len2;
     public static int[] merge(int[] list1,int[] list2){
         int[] ans=new int[2000];

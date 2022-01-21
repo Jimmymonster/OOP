@@ -1,5 +1,5 @@
 import java.util.*;
-class main{
+class Pro2{
     public static void main(String args[]){
         Calendar cal = new GregorianCalendar();
         System.out.println("Current year, month, date, and day of the week");

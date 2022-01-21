@@ -1,5 +1,5 @@
 import java.util.*;
-class main{
+class Pro3{
     public static void main(String args[]){
         String[] a=new String[1000];
         Scanner in = new Scanner(System.in);

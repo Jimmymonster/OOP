@@ -15,7 +15,7 @@ class Stopwatch{
         return this.endTime - this.startTime;
     }
 }
-class main{
+class Pro3{
     public static void printList(float[] list){
         for(int i=0;i<5;i++)
             System.out.print(list[i]+" ");
