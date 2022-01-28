@@ -18,11 +18,23 @@ class Pro2{
         String[] s;
         System.out.print("Enter list1: ");
         s = in.nextLine().split(" ");
-        for(int i=0;i<s.length;i++) list1[i]=Integer.parseInt(s[i]);
+        for(int i=0;i<s.length;i++){
+            if(!Character.isDigit(s[i].charAt(0))){
+                System.out.println("Invalid input");
+                System.exit(0);
+            }
+            list1[i]=Integer.parseInt(s[i]);
+        }
         len1=s.length;
         System.out.print("Enter list2: ");
         s = in.nextLine().split(" ");
-        for(int i=0;i<s.length;i++) list2[i]=Integer.parseInt(s[i]);
+        for(int i=0;i<s.length;i++){
+            if(!Character.isDigit(s[i].charAt(0))){
+                System.out.println("Invalid input");
+                System.exit(0);
+            }
+            list2[i]=Integer.parseInt(s[i]);
+        }
         len2=s.length;
         ans=merge(list1,list2);
         System.out.print("The merged list is ");

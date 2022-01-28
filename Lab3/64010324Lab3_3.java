@@ -1,26 +1,32 @@
 import java.util.*;
+import java.math.*;
 class Pro3{
     public static void main(String args[]){
-        String[] a=new String[1000];
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the size for the matrix: ");
         boolean chrow=false,chcol=false,chdiag=false,chsuperdiag=false,chsubdiag=false;
         int n = in.nextInt();
-        if (in.hasNextLine()) {
-            in.nextLine();
+        if(n<=0){
+            System.out.println("Invalid input");
+            System.exit(0);
         }
+        int[][] arr=new int[n][n];
         for(int i=0;i<n;i++){
-            a[i] = in.nextLine();
+            for(int j=0;j<n;j++){
+                arr[i][j]= (int)(Math.random()*2);
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
         }
         //checking for the rows
         for(int i=0;i<n;i++){
             int now;
             boolean ch=true;
-            if(a[i].charAt(0)=='0') now = 0;
+            if(arr[i][0]==0) now = 0;
             else now = 1;
             for(int j=0;j<n;j++){
-                if(a[i].charAt(j)=='0'&&now==1) ch=false;
-                if(a[i].charAt(j)=='1'&&now==0) ch=false;
+                if(arr[i][j]==0&&now==1) ch=false;
+                if(arr[i][j]==1&&now==0) ch=false;
             }
             if(ch){
                 chrow=true;
@@ -32,11 +38,11 @@ class Pro3{
         for(int i=0;i<n;i++){
             int now;
             boolean ch=true;
-            if(a[0].charAt(i)=='0') now = 0;
+            if(arr[0][i]==0) now = 0;
             else now = 1;
             for(int j=0;j<n;j++){
-                if(a[j].charAt(i)=='0'&&now==1) ch=false;
-                if(a[j].charAt(i)=='1'&&now==0) ch=false;
+                if(arr[j][i]==0&&now==1) ch=false;
+                if(arr[j][i]==1&&now==0) ch=false;
             }
             if(ch){
                 chcol=true;
@@ -47,11 +53,11 @@ class Pro3{
         //checking for the diagonals
         int now;
         boolean ch=true;
-        if(a[0].charAt(0)=='0') now = 0;
+        if(arr[0][0]==0) now = 0;
         else now = 1;
         for(int i=0;i<n;i++){
-            if(a[i].charAt(i)=='0'&&now==1) ch=false;
-            if(a[i].charAt(i)=='1'&&now==0) ch=false;
+            if(arr[i][i]==0&&now==1) ch=false;
+            if(arr[i][i]==1&&now==0) ch=false;
         }
         if(ch){
             chdiag=true;
@@ -60,11 +66,11 @@ class Pro3{
         if(!chdiag) System.out.println("No same number on the diagonal");
         //checking for the superdiagonals
         ch=true;
-        if(a[0].charAt(0)=='0') now = 0;
+        if(arr[0][1]==0) now = 0;
         else now = 1;
         for(int i=1;i<n;i++){
-            if(a[i-1].charAt(i)=='0'&&now==1) ch=false;
-            if(a[i-1].charAt(i)=='1'&&now==0) ch=false;
+            if(arr[i-1][i]==0&&now==1) ch=false;
+            if(arr[i-1][i]==1&&now==0) ch=false;
         }
         if(ch){
             chsuperdiag=true;
@@ -73,11 +79,11 @@ class Pro3{
         if(!chsuperdiag) System.out.println("No same number on the superdiagonal");
         //checking for the subdiagonals
         ch=true;
-        if(a[0].charAt(0)=='0') now = 0;
+        if(arr[1][0]==0) now = 0;
         else now = 1;
         for(int i=0;i<n-1;i++){
-            if(a[i+1].charAt(i)=='0'&&now==1) ch=false;
-            if(a[i+1].charAt(i)=='1'&&now==0) ch=false;
+            if(arr[i+1][i]==0&&now==1) ch=false;
+            if(arr[i+1][i]==1&&now==0) ch=false;
         }
         if(ch){
             chsubdiag=true;
