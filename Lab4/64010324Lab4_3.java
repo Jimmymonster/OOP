@@ -1,10 +1,13 @@
 import java.util.*;
+import java.math.*;
 class Stopwatch{
     private double startTime,endTime;
-   // Calendar cal = new GregorianCalendar();
+    //===========================
     public Stopwatch(){
-        this.startTime = System.currentTimeMillis();
+        this.startTime = 0;
+        this.endTime = 0;
     }
+    //===========================
     public void start(){
         this.startTime = System.currentTimeMillis();
     }
@@ -22,6 +25,7 @@ class Pro3{
         System.out.println();
         for(int i=5;i<10;i++)
             System.out.print(list[i]+" ");
+        System.out.println();
         System.out.println("...");
         for(int i=990;i<995;i++)
             System.out.print(list[i]+" ");
@@ -32,11 +36,10 @@ class Pro3{
     }
     public static void main(String args[]){
         System.out.println("Creating a list containing 1000 elements,");
-        Random rand = new Random();
         Stopwatch sw = new Stopwatch();
         float[] list = new float[1000];
         for(int i=0;i<1000;i++){
-            list[i] = rand.nextFloat(1000);
+            list[i] = (float)Math.random()*1000;
             list[i] = (float)Math.round(list[i]*100)/100;
         }
         printList(list);
@@ -44,12 +47,16 @@ class Pro3{
         sw.start();
         System.out.println("Sorting stopwatch starts...");
         for(int i=0;i<1000;i++){
+            int min =i;
             for(int j=i+1;j<1000;j++){
-                if(list[i]>list[j]){
-                    float temp = list[i];
-                    list[i] = list[j];
-                    list[j] = temp;
+                if(list[j]<list[min]){
+                    min=j;
                 }
+            }
+            if(min!=i){
+                float temp = list[i];
+                list[i] = list[min];
+                list[min] = temp;
             }
         }
         printList(list);
