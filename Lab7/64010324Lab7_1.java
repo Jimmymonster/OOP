@@ -1,35 +1,26 @@
 import java.util.*;
-class Account{
+class Account1{
     private int id;
     private double balance;
     private double annualInterestRate;
     private Date dateCreated;
-    public Account(){
+    public Account1(){
         id = 0;
         balance = 0;
         annualInterestRate = 0;
         dateCreated = new Date();
     }
-    public Account(int id,double balance,double annualInterestRate){
+    public Account1(int id,double balance,double annualInterestRate){
         this.id = id;
         this.balance = balance;
         this.annualInterestRate = annualInterestRate;
         dateCreated = new Date();
     }
-    public void setId(int id){
-        this.id = id;
-    }
     public int getId(){
         return id;
     }
-    public void setBalance(double balance){
-        this.balance = balance;
-    }
     public double getBalance(){
         return balance;
-    }
-    public void setanuualInterestRate(double annualInterestRate){
-        this.annualInterestRate = annualInterestRate;
     }
     public double getAnnualInterestRate(){
         return annualInterestRate;
@@ -55,10 +46,10 @@ class Account{
         balance += amount;
     }
 }
-class checking extends Account{
+class checking extends Account1{
     
 }
-class saving extends Account{
+class saving extends Account1{
     
 }
 class Pro1{

@@ -19,7 +19,7 @@ class Stopwatch{
     }
 }
 class Pro3{
-    public static void printList(float[] list){
+    public static void printList(double[] list){
         for(int i=0;i<5;i++)
             System.out.print(list[i]+" ");
         System.out.println();
@@ -37,10 +37,10 @@ class Pro3{
     public static void main(String args[]){
         System.out.println("Creating a list containing 1000 elements,");
         Stopwatch sw = new Stopwatch();
-        float[] list = new float[1000];
+        double[] list = new double[1000];
         for(int i=0;i<1000;i++){
-            list[i] = (float)Math.random()*1000;
-            list[i] = (float)Math.round(list[i]*100)/100;
+            list[i] = (double)Math.random()*1000;
+            list[i] = (double)Math.round(list[i]*100)/100;
         }
         printList(list);
         System.out.println("List created");
@@ -54,7 +54,7 @@ class Pro3{
                 }
             }
             if(min!=i){
-                float temp = list[i];
+                double temp = list[i];
                 list[i] = list[min];
                 list[min] = temp;
             }
@@ -66,36 +66,33 @@ class Pro3{
         System.out.println("------------------------------------------------------------");
         System.out.println("The palindromePrime stopwatch starts...");
         sw.start();
-        int[] prime=new int[200000]; // 0=prime 1=not prime
-        prime[0]=prime[1]=1;
-        for(int i=2;i<200000;i++){
-            if(prime[i]==0){
-                //unmark all multiples of i
-                if(i<1000){
-                    for(int j=i*i;j<200000;j+=i){
-                        prime[j]=1;
-                    }
-                }
-                //check palindrome
-                int temp=i,reverse=0;
-                while(temp>0){
-                    reverse=reverse*10+temp%10;
-                    temp/=10;
-                }
-                if(i!=reverse) prime[i]=1;
-            }
-        }
-        int k=1;
-        for(int i=0;i<10;i++){
-            int j=10;
-            while(j>0){
-                k++;
-                if(prime[k]==0){
-                    System.out.print(k+" ");
-                    j--; 
+        long n=2;
+        int cou=0;
+        while(cou<1000){
+            boolean isprime=true,ispalin=false;
+            for(long i=2;i*i<=n;i++){
+                if(n%i==0){
+                    isprime=false;
+                    break;
                 }
             }
-            System.out.println();
+            long reverse=0;
+            long temp=n;
+            while(temp>0){
+                reverse=reverse*10+temp%10;
+                temp=temp/10;
+            }
+            if(n==reverse){
+                ispalin=true;
+            }
+            if(isprime&&ispalin){
+                cou++;
+                System.out.print(n+" ");
+                if(cou%10==0)
+                    System.out.println();
+            }
+            if(n==2) n=3;
+            else n+=2;
         }
         System.out.println("PalindromePrime created.");
         sw.stop();
