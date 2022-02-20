@@ -1,21 +1,4 @@
 import java.util.*;
-class Account{
-    private double balance;
-    private int id;
-    Account(int id,double balance){
-        this.id=id;
-        this.balance=balance;
-    }
-    public double getBalance(){
-        return balance;
-    }
-    public void deposit(double amount){
-        balance += amount;
-    }
-    public void withdraw(double amount){
-        balance -= amount;
-    }
-}
 class Pro6{
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
@@ -52,8 +35,13 @@ class Pro6{
                 acc[id].withdraw(amount);
             }
             else if(opr==3){
-                System.out.print("Enter an amount to deposit: ");
-                double amount = sc.nextDouble();
+                double amount;
+                while(true){
+                    System.out.print("Enter an amount to deposit: ");
+                    amount = sc.nextDouble();
+                    if(amount<0) System.out.println("Invalid amount");
+                    else break;
+                }
                 acc[id].deposit(amount);
             }
             else if(opr==4) break;

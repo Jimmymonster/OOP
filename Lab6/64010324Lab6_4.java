@@ -9,25 +9,31 @@ class Pro4{
             {8350, 33950, 68525, 104425, 186475},
             {11950, 45500, 117450, 190200, 372950}
         };
-        System.out.println("Filling Status");
-        System.out.println("    [0]-Single filer");
-        System.out.println("    [1]-Married jointly or qualifying widow(er)");
-        System.out.println("    [2]-Married separately");
-        System.out.println("    [3]-Head of household");
-        System.out.print("Enter filing status ");
-        int status=in.nextInt();
+        int status;
+        while(true){
+            System.out.println("Filling Status");
+            System.out.println("    [0]-Single filer");
+            System.out.println("    [1]-Married jointly or qualifying widow(er)");
+            System.out.println("    [2]-Married separately");
+            System.out.println("    [3]-Head of household");
+            System.out.print("Enter filing status ");
+            status=in.nextInt();
+            if(status<0||status>3)
+                System.out.println("Invalid filing status");
+            else
+                break;
+        }
         System.out.print("Enter taxable income ");
         double taxableIncome=in.nextDouble();
-        double tax=0;
-        for(int i=4;i>=0;i--){
-            if(taxableIncome>=brackets[status][i]){
-                tax+=(taxableIncome-brackets[status][i])*rates[i+1];
-                taxableIncome=brackets[status][i];
-            }
-        }
-        if(taxableIncome>0){
-            tax+=(taxableIncome-0)*rates[0];
-        }
-        System.out.println("Tax is "+tax);
+        System.out.println("Tax is "+computeTax(brackets, rates, status, taxableIncome));
+    }
+    public static double computeTax(int[][] brackets,double[] rates,int status,double income){
+        double tax = 0, incomeTaxed = 0;
+		for (int i = 4; i >= 0; i--) {
+			if (income > brackets[status][i])
+ 				tax += (incomeTaxed = income - brackets[status][i]) * rates[i + 1];
+				income -= incomeTaxed;
+		} 
+		return tax += income * rates[0];
     }
 }
