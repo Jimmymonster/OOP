@@ -16,7 +16,9 @@ class Pro1{
         c1.deposit(3000);
 
         System.out.println(a1);
+        System.out.println();
         System.out.println(s1);
+        System.out.println();
         System.out.println(c1);
     }
 }

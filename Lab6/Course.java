@@ -6,11 +6,11 @@ public class Course {
     public Course(String courseName) {
         this.courseName = courseName;
     }
-    //getter
+    //accessor
     public String getCourseName() {return courseName;}
     public String[] getStudents() {return students;}
     public int getNumberOfStudents() {return numberOfStudents;}
-    //setter
+    //mutator
     public void setCourseName(String courseName) {this.courseName = courseName;}
     //function
     public void addStudent(String student) {
@@ -25,14 +25,16 @@ public class Course {
         numberOfStudents++;
     }
     public void dropStudent(String student){
+        boolean ch=false;
         int index=0;
         for(int i=0;i<numberOfStudents;i++) {
             if(students[i].equals(student)) {
                 index=i;
+                ch=true;
                 break;
             }
         }
-        if(index==numberOfStudents) {
+        if(!ch) {
             System.out.println("Student not found.");
         }
         else{
@@ -40,6 +42,10 @@ public class Course {
         }
     }
     public void dropStudent(int index){
+        if(index>numberOfStudents){
+            System.out.println("Out of range.");
+            return;
+        }
         String[] temp=new String[students.length-1];
         for(int i=0,k=0;i<students.length;i++,k++) {
             if(i==index) {
@@ -47,6 +53,8 @@ public class Course {
             }
             temp[k]=students[i];
         }
+        students[--numberOfStudents]=null;
+        students=temp;
     }
     public void clear(){
         students=new String[1];

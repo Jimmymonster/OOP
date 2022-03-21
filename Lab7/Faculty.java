@@ -15,6 +15,6 @@ class Faculty extends Employee{
     public void setRank(String rank){this.rank = rank;}
     //functions
     public String toString(){
-        return "Faculty\n" + super.toString(1) + " Faculty{office_hours=" + office_hours + ", rank=" + rank + "}";
+        return "Faculty\n" + super.forsubclass() + " Faculty{office_hours=" + office_hours + ", rank=" + rank + "}";
     }
 }

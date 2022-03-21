@@ -7,6 +7,10 @@ class Student extends Person{
     Student(String name, String address, String phone_number, String email_address, int status){
         super(name, address, phone_number, email_address);
         this.status = status;
+        if(status < 1 || status > 4){
+            System.out.println("Invalid status");
+            System.exit(0);
+        }
     }
     public void setStatus(int status){this.status = status;}
     public String getStatus(){

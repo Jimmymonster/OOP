@@ -25,11 +25,14 @@ public class Account1{
     public double getMonthlyInterest()      {return balance*getMonthlyInterestRate();}
     //mutators
     public void setID(int id)               {this.id = id;}
-    public void setBalance(double balance)  {this.balance = balance;}
+    //public void setBalance(double balance)  {this.balance = balance;}
     public void setAnnualInterestRate(double annualInterestRate){this.annualInterestRate=annualInterestRate;}
     //functions
     public void withdraw(double amount){
-        if(balance<amount){
+        if(amount<0){
+            System.out.println("Invalid amount");
+        }
+        else if(balance<amount){
             System.out.println("Insufficient funds");
         }
         else{

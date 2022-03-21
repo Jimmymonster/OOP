@@ -14,16 +14,21 @@ public class BMI{
         this(name,20,weight,height);
     }
     public BMI(String name,int age,double weight,double feet,double inches){
-        this(name,age,weight,inches+feet*12);
+        this(name,age,weight,(inches+feet*12)*0.0254);
     }
     //accessor
     public String getName()     {return name;}
     public int getAge()         {return age;}
     public double getWeight()   {return weight;}
     public double getHeight()     {return height;}
+    //mutator
+    public void setName(String name)     {this.name=name;}
+    public void setAge(int age)         {this.age=age;}
+    public void setWeight(double weight)   {this.weight=weight;}
+    public void setHeight(double height)    {this.height=height;}   
     //function
     public double getBMI(){
-        return weight*0.45359237/(height*0.0254*height*0.0254);
+        return weight/(height*height);
     }
     public String getStatus(){
         double bmi=getBMI();

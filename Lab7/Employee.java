@@ -20,7 +20,7 @@ class Employee extends Person{
     public String toString(){
         return "Employee\n" + super.toString() + " Employee{office=" + office + ", salary=" + salary + ", date_hired=" + date_hired + "}";
     }
-    public String toString(int forsubclass){
+    public String forsubclass(){
         return super.toString() + " Employee{office=" + office + ", salary=" + salary + ", date_hired=" + date_hired + "}";
     }
 }
