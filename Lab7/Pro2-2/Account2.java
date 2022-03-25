@@ -14,13 +14,29 @@ public class Account2{
     }
     public Account2(int id,double balance){
         this.id = id;
+        if(id<0){
+            System.out.println("Account ID must be positive");
+            System.exit(0);
+        }
         this.balance = balance;
+        if(balance <0){
+            System.out.println("Invalid balance");
+            System.exit(0);
+        }
         dateCreated = new Date();
     }
     public Account2(String name,int id,double balance){
         this.name = name;
         this.id = id;
+        if(id<0){
+            System.out.println("Account ID must be positive");
+            System.exit(0);
+        }
         this.balance = balance;
+        if(balance <0){
+            System.out.println("Invalid balance");
+            System.exit(0);
+        }
         dateCreated = new Date();
     }
     //accessor
@@ -32,7 +48,7 @@ public class Account2{
     public double getMonthlyInterest()      {return balance*getMonthlyInterestRate();}
     //mutator
     public void setID(int id)               {this.id = id;}
-    public void setBalance(double balance)  {this.balance = balance;}
+    //public void setBalance(double balance)  {this.balance = balance;}
     public void setAnnualInterestRate(double annualInterestRate){this.annualInterestRate=annualInterestRate;}
     //function
     public void printlog(){
@@ -54,12 +70,15 @@ public class Account2{
         }
     }
     public void withdraw(double amount){
-        if(balance<amount){
+        if(amount<0){
+            System.out.println("Invalid amount");
+        }
+        else if(balance<amount){
             System.out.println("Insufficient funds");
         }
         else{
+            transactions.add(new transactions('W',amount,balance,"Withdraw"));
             balance -= amount;
-            transactions.add(new transactions('W',amount,balance,"withdraw"));
         }
     }
     public void deposit(double amount){
@@ -67,8 +86,8 @@ public class Account2{
             System.out.println("Invalid amount");
         }
         else{
-            balance += amount;
             transactions.add(new transactions('D',amount,balance,"Deposit"));
+            balance += amount;
         }
     }
 }
