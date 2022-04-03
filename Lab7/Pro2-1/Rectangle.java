@@ -26,7 +26,7 @@ public class Rectangle extends GeometricObject{
         return 2*(width+height);
     }
     public String toString(){
-        return "Rectangle: width="+width+" height="+height+"\n" + super.toString();
+        return "width="+width+" height="+height+"\n" + super.toString();
     }
     
 }

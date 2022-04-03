@@ -22,6 +22,6 @@ public class Circle extends GeometricObject{
         return 2*Math.PI*radius;
     }
     public String toString(){
-        return "Circle: radius="+radius+"\n" + super.toString();
+        return "radius="+radius+"\n" + super.toString();
     }
 }

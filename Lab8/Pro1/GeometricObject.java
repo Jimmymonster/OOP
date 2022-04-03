@@ -20,8 +20,8 @@ public abstract class GeometricObject {
     public void setFilled(boolean filled) {this.filled=filled;}
     //method
     public String toString(){
-        return "created on "+dateCreated+
-        "\ncolor: "+color+
+        return 
+        "color: "+color+
         "\nfilled: "+filled+
         "\nArea: "+getArea()+
         "\nPerimeter: "+getPerimeter();
