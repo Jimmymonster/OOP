@@ -1,5 +1,5 @@
 public class Circle extends GeometricObject{
-    double radius;
+    private double radius;
     //constructor
     public Circle(){
     }
